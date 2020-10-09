@@ -1,0 +1,49 @@
+#Memory check
+		$free command.
+		$top or htop command.
+		$vmstat command.
+		$dmidecode command.
+		$/proc/meminfo file.
+
+
+#CPU check
+		$top # view top consumers of memory and CPU
+		$mtop # displays multicomputer/CPU processes
+		$top –i #This hides all the idle processes, making it easier to sort through the list.
+        M – sort task list by memory usage
+		P – sort task list by processor usage
+		N – sort task list by process ID
+		T – sort task list by run time
+
+#Linux basic command		
+
+	#Port open
+		$ netstat -na | grep (Port no)
+
+	#Which service running on port 80
+		$ netstat -pnltu
+					-p flag Gives the process ID and the process name.
+					-n flag displays numerical addresses
+					-l flag displays listening sockets		
+					-t flag shows TCP connections
+					-u flag shows UDP connections
+		$ sudo netstat -pnltu | grep -i "80"
+		$ sudo netstat -pnltu | grep -i "httpd"
+		$ fuser 80/tcp
+
+#How to check whitelisting url
+		$nslookup [option]
+					Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from DNS server. 
+					It is a network administration tool for querying the Domain Name System (DNS) to obtain domain name or 
+					IP address mapping or any other specific DNS record. 
+					It is also used to troubleshoot DNS related problems.
+
+#Check connection between  to 2 server
+		$ping
+		$traceroute
+		$telnet
+		$ssh
+
+#How to check which process consuming  more cpu/memory
+		$top
+		$ps
