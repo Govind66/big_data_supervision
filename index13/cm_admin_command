@@ -1,0 +1,6 @@
+#namenode check command
+$sudo -u hdfs hdfs haadmin -getServiceState nn1 
+$standby
+$hdfs getconf -namenodes
+$hdfs getconf -secondaryNameNodes
+$ hdfs dfsadmin -refreshNodes
