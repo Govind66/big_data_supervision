@@ -1,0 +1,4 @@
+#Benchmarking
+ Teragen==>hadoop jar /opt/cloudera/parcels/CDH/lib/spark/spark-examples.jar teragen 100000 /user/data/terasort1
+ Terasort==> hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar terasort  /user/data/terasort1 /user/terasortoutput1 
+ Pi-estimator==>hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 10 100
