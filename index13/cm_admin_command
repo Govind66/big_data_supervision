@@ -4,3 +4,19 @@ $standby
 $hdfs getconf -namenodes
 $hdfs getconf -secondaryNameNodes
 $ hdfs dfsadmin -refreshNodes
+
+#yarn administration
+$yarn application [options]
+
+COMMAND_OPTIONS	Description
+-appStates <States>	Works with -list to filter applications based on input comma-separated list of application states. The valid application state can be one of the following:  ALL, NEW, NEW_SAVING, SUBMITTED, ACCEPTED, RUNNING, FINISHED, FAILED, KILLED
+-appTypes <Types>	Works with -list to filter applications based on input comma-separated list of application types.
+-list	Lists applications from the RM. Supports optional use of -appTypes to filter applications based on application type, and -appStates to filter applications based on application state.
+-kill <ApplicationId>	Kills the application.
+-status <ApplicationId>	Prints the status of the application.
+
+$yarn application -appStates <States>
+$yarn application -appTypes <Types>
+$yarn application -list
+$yarn application -kill <ApplicationId>
+$yarn application -status <ApplicationId>
