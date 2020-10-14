@@ -1,0 +1,46 @@
+#FileBeat installation on client.example.com
+
+#Create Yum repository
+
+cat >>/etc/yum.repos.d/elasticsearch.repo<<EOF
+[elasticsearch-6.x]
+name=Elasticsearch repository for 6.x packages
+baseurl=https://artifacts.elastic.co/packages/6.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+EOF
+
+#Install Filebeat
+
+yum install -y filebeat
+
+#Copy SSL certificate from server.example.com
+
+scp server.example.com:/etc/pki/tls/certs/logstash.crt /etc/pki/tls/certs/
+
+#Configure Filebeat
+#Remove Hash from following parameter in filebeat.yml (path==>/etc/filebeat/filebeat.yml)
+
+#=========================== Filebeat inputs =============================
+ # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - /var/log/messages
+    - /var/log/secure
+----------------------------------------------------------------------------
+
+#----------------------------- Logstash output --------------------------------
+hosts: ["ip-172-31-22-110.ec2.internal:5044"]
+ssl.certificate_authorities: ["/etc/pki/tls/certs/logstash.crt"]
+
+---------------------------------------------------------------------------------
+
+#Enable and start Filebeat service
+
+systemctl enable filebeat
+systemctl start filebeat
+
+#Configure Kibana Dashboard
+#All done. Now you can head to Kibana dashboard and add the index.
