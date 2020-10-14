@@ -1,0 +1,21 @@
+#Install Nginx
+  
+  yum install -y nginx
+
+#Create Proxy configuration
+#Remove server block from the default config file /etc/nginx/nginx.conf And create a new config file
+
+cat >>/etc/nginx/conf.d/kibana.conf<<EOF
+  server {
+      listen 80;
+      server_name server.example.com;
+      location / {
+          proxy_pass http://localhost:5601;
+      }
+  }
+  EOF
+
+#Enable and start nginx service
+
+  systemctl enable nginx
+  systemctl start nginx
