@@ -1,2 +1,2 @@
-# big_data_supervision
+cloudera_logo_darkorange.png
 Big data analytics
