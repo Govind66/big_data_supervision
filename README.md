@@ -1,3 +1,3 @@
 Big data analytics
-![BIGDTA_-_full_logo_yellow](https://user-images.githubusercontent.com/71077779/97078785-20c2fb80-160c-11eb-883b-e7ad5129b4e1.png)
+![logo](https://user-images.githubusercontent.com/71077779/97078822-8adba080-160c-11eb-8372-ca0c8771233f.PNG)
 
